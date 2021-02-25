@@ -4,7 +4,7 @@ Theme: THEME
 
 Short desc  
 
-![Cover](ItchioPage/CoverImage.png) 
+![Cover](Screenshots/ItchioPage/CoverImage.png) 
 
 Long desc  
 
