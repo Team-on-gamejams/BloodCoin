@@ -32,6 +32,14 @@ namespace UnityConstants
         /// Name of tag 'GameController'.
         /// </summary>
         public const string GameController = "GameController";
+        /// <summary>
+        /// Name of tag 'Hand'.
+        /// </summary>
+        public const string Hand = "Hand";
+        /// <summary>
+        /// Name of tag 'Coin'.
+        /// </summary>
+        public const string Coin = "Coin";
     }
 
     public static class SortingLayers
@@ -102,9 +110,9 @@ namespace UnityConstants
         /// </summary>
         public const int MainMenu = 0;
         /// <summary>
-        /// ID of scene 'SampleScene2D'.
+        /// ID of scene 'GameplayScene'.
         /// </summary>
-        public const int SampleScene2D = 1;
+        public const int GameplayScene = 1;
     }
 
     public static class Axes
