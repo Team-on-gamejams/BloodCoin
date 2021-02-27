@@ -500,9 +500,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4854c94da9abbd47b5180d7d5dc0483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineLenghtMod: 1
   force: 3
   minForce: 0.33
   maxForce: 4
+  speedToStop: 0.33
   forcelr: {fileID: 3460928215737818453}
   rb: {fileID: 3460928216913653481}
 --- !u!54 &3460928216913653481

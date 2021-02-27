@@ -32,6 +32,5 @@ public class CoinSpawner : MonoBehaviour {
 			.setOnComplete(() => { 
 				coin.enabled = true;
 			});
-
 	}
 }

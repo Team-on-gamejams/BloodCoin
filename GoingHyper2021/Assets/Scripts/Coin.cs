@@ -11,16 +11,21 @@ using Random = UnityEngine.Random;
 public class Coin : MonoBehaviour {
 	[NonSerialized] public CoinSpawner coinSpawner;
 
+	[Header("Visual")]
+	[SerializeField] float lineLenghtMod = 2.0f;
+
 	[Header("Balance")]
 	[SerializeField] float force = 5.0f;
+	[Space]
 	[SerializeField] float minForce = 1.0f;
 	[SerializeField] float maxForce = 10.0f;
+	[Space]
+	[SerializeField] float speedToStop = 0.33f;
 
 	[Header("Refs")]
 	[SerializeField] LineRenderer forcelr;
 	[SerializeField] Rigidbody rb;
 
-	bool isStart = false;
 	bool isHold = false;
 	bool isThrowed = false;
 	bool isHit = false;
@@ -31,17 +36,11 @@ public class Coin : MonoBehaviour {
 
 	private void Awake() {
 		forcelr.useWorldSpace = true;
-	}
-
-	private IEnumerator Start() {
-		yield return null;
-		yield return null;
-
-		isStart = true;
+		speedToStop *= speedToStop;
 	}
 
 	private void Update() {
-		if (isThrowed || !isStart)
+		if (isThrowed)
 			return;
 
 		holdPos = Input.mousePosition;
@@ -62,22 +61,60 @@ public class Coin : MonoBehaviour {
 			Vector3 force = GetThrowVector();
 			List<Vector3> pos = new List<Vector3>();
 
-			pos.Add(transform.position);
-			pos.Add(transform.position + force);
-			//TODO: draw full line
+			if(force.magnitude <= Mathf.Epsilon) {
+				pos.Add(transform.position);
+				pos.Add(transform.position);
+			}
+			else {
+				float dist = force.magnitude * lineLenghtMod;
+				Vector3 lastProcessedPos = transform.position;
+				Vector3 lastDir = force.normalized;
+				RaycastHit hit;
 
+				pos.Add(transform.position);
+
+				while (dist > 0) {
+					if (Physics.Raycast(lastProcessedPos, lastDir, out hit, dist, UnityConstants.Layers.DefaultMask)) {
+						if(hit.transform.CompareTag(UnityConstants.Tags.Coin) || hit.transform.CompareTag(UnityConstants.Tags.Hand)) {
+							pos.Add(hit.point);
+
+							dist = 0;
+						}
+						else {
+							pos.Add(hit.point);
+
+							dist -= hit.distance;
+							lastProcessedPos = hit.point;
+							lastDir = Vector3.Reflect(lastDir, hit.normal);
+						}
+					}
+					else {
+						pos.Add(lastProcessedPos + lastDir * dist);
+						dist = 0;
+					}
+				}
+			}
+
+			forcelr.positionCount = pos.Count;
 			forcelr.SetPositions(pos.ToArray());
 		}
 	}
 
 	private void FixedUpdate() {
 		if (isThrowed && isHold) {
-			isHold = false;
-			LaunchCoin();
+			Vector3 force = GetThrowVector();
+			if (force.magnitude <= Mathf.Epsilon) {
+				isThrowed = isHold = false;
+			}
+			else {
+				isHold = false;
+				LaunchCoin();
+			}
+				
 			return;
 		}
 
-		if (isThrowed && !isHit && rb.velocity.sqrMagnitude <= 0.01f) {
+		if (isThrowed && !isHit && rb.velocity.sqrMagnitude <= speedToStop) {
 			OnStop();
 		}
 	}
@@ -107,7 +144,7 @@ public class Coin : MonoBehaviour {
 	}
 
 	void OnCollideObstacle(Collision collision) {
-		//rb.velocity = Vector3.Reflect(rb.velocity, collision.GetContact(0).normal);
+
 	}
 
 	void LaunchCoin() {
@@ -127,9 +164,12 @@ public class Coin : MonoBehaviour {
 	}
 
 	Vector3 GetThrowVector() {
-		Vector2 diff = TemplateGameManager.Instance.Camera.ScreenToWorldPoint(holdPos) - TemplateGameManager.Instance.Camera.ScreenToWorldPoint(startHoldPos);
+		if((startHoldPos - holdPos).magnitude <= 10.0f) {
+			return Vector3.zero;
+		}
+
+		Vector2 diff = TemplateGameManager.Instance.Camera.ScreenToWorldPoint(startHoldPos) - TemplateGameManager.Instance.Camera.ScreenToWorldPoint(holdPos);
 		Vector3 force = new Vector3(diff.x, 0, diff.y);
-		//Debug.Log($"{holdPos} {startHoldPos} {TemplateGameManager.Instance.Camera.ScreenToWorldPoint(holdPos)} {TemplateGameManager.Instance.Camera.ScreenToWorldPoint(startHoldPos)} {diff}");
 
 		if(force.magnitude < minForce) {
 			force = force.normalized * minForce;
