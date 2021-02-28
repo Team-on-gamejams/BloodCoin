@@ -53,6 +53,7 @@ Video about TriJam from Rocknight Studios: https://www.youtube.com/watch?v=6PysB
  * Assets from template - https://github.com/Team-on/UnityGameTemplate/wiki/Used-assets
  * https://assetstore.unity.com/packages/2d/textures-materials/blood-splatter-decal-package-7518 - blood decals
  * https://assetstore.unity.com/packages/3d/props/furniture/medieval-tavern-pack-112546 - gameplay scene props
+ * https://assetstore.unity.com/packages/3d/props/old-coin-49530 - coin
 
 
 # Screenshots
