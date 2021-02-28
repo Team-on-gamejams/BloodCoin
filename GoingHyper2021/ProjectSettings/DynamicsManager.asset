@@ -6,7 +6,7 @@ PhysicsManager:
   serializedVersion: 13
   m_Gravity: {x: 0, y: -9.81, z: 0}
   m_DefaultMaterial: {fileID: 13400000, guid: 6c1c0ef872b5e144ab2d0857cb5d4399, type: 2}
-  m_BounceThreshold: 0
+  m_BounceThreshold: 0.01
   m_DefaultMaxDepenetrationVelocity: 10
   m_SleepThreshold: 0.005
   m_DefaultContactOffset: 0.01
@@ -23,12 +23,12 @@ PhysicsManager:
   m_AutoSyncTransforms: 0
   m_ReuseCollisionCallbacks: 1
   m_ClothInterCollisionSettingsToggle: 0
-  m_ClothGravity: {x: 0, y: -9.81, z: 0}
+  m_ClothGravity: {x: 0, y: 0, z: 0}
   m_ContactPairsMode: 0
   m_BroadphaseType: 0
   m_WorldBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 250, y: 250, z: 250}
+    m_Extent: {x: 50, y: 50, z: 50}
   m_WorldSubdivisions: 8
   m_FrictionType: 0
   m_EnableEnhancedDeterminism: 0

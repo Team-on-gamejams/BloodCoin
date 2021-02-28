@@ -34,6 +34,9 @@ public class Coin : MonoBehaviour {
 	Vector3 startHoldPos;
 	Vector3 holdPos;
 
+	List<Vector3> posToMove = new List<Vector3>();
+	int nextPos = 1;
+
 	private void Awake() {
 		forcelr.useWorldSpace = true;
 		forcelr.gameObject.SetActive(false);
@@ -114,7 +117,15 @@ public class Coin : MonoBehaviour {
 			return;
 		}
 
-		if (isThrowed && !isHit && rb.velocity.sqrMagnitude <= speedToStop) {
+		if(isThrowed && !isStop) {
+			if (Physics.Raycast(transform.position, rb.velocity.normalized, out RaycastHit hit, rb.velocity.magnitude * Time.deltaTime, UnityConstants.Layers.DefaultMask)) {
+				rb.velocity = Vector3.Reflect(rb.velocity, hit.normal);
+
+				OnCollideObstacle();
+			}
+		}
+
+		if (isThrowed && !isStop && !isHit && rb.velocity.sqrMagnitude <= speedToStop) {
 			OnStop();
 		}
 	}
@@ -125,9 +136,9 @@ public class Coin : MonoBehaviour {
 				OnCollideHand();
 				break;
 
-			case UnityConstants.Tags.Untagged:
-				OnCollideObstacle(collision);
-				break;
+			//case UnityConstants.Tags.Untagged:
+			//	OnCollideObstacle(collision);
+			//	break;
 		}
 	}
 
@@ -138,13 +149,13 @@ public class Coin : MonoBehaviour {
 
 		isHit = true;
 		rb.velocity = Vector3.zero;
-		rb.isKinematic = false;
+		rb.isKinematic = true;
 
 		//TODO: win
 		coinSpawner.SpawnCoin();
 	}
 
-	void OnCollideObstacle(Collision collision) {
+	void OnCollideObstacle() {
 
 	}
 
