@@ -36,6 +36,8 @@ public class Coin : MonoBehaviour {
 
 	private void Awake() {
 		forcelr.useWorldSpace = true;
+		forcelr.gameObject.SetActive(false);
+
 		speedToStop *= speedToStop;
 	}
 
@@ -61,28 +63,26 @@ public class Coin : MonoBehaviour {
 			Vector3 force = GetThrowVector();
 			List<Vector3> pos = new List<Vector3>();
 
-			if(force.magnitude <= Mathf.Epsilon) {
-				pos.Add(transform.position);
+			pos.Add(transform.position);
+			
+			if (force.magnitude <= Mathf.Epsilon) {
 				pos.Add(transform.position);
 			}
 			else {
+				float y = transform.position.y;
 				float dist = force.magnitude * lineLenghtMod;
 				Vector3 lastProcessedPos = transform.position;
 				Vector3 lastDir = force.normalized;
 				RaycastHit hit;
 
-				pos.Add(transform.position);
-
 				while (dist > 0) {
 					if (Physics.Raycast(lastProcessedPos, lastDir, out hit, dist, UnityConstants.Layers.DefaultMask)) {
-						if(hit.transform.CompareTag(UnityConstants.Tags.Coin) || hit.transform.CompareTag(UnityConstants.Tags.Hand)) {
-							pos.Add(hit.point);
-
+						pos.Add(hit.point.SetY(y));
+						
+						if (hit.transform.CompareTag(UnityConstants.Tags.Coin) || hit.transform.CompareTag(UnityConstants.Tags.Hand)) {
 							dist = 0;
 						}
 						else {
-							pos.Add(hit.point);
-
 							dist -= hit.distance;
 							lastProcessedPos = hit.point;
 							lastDir = Vector3.Reflect(lastDir, hit.normal);
@@ -138,6 +138,7 @@ public class Coin : MonoBehaviour {
 
 		isHit = true;
 		rb.velocity = Vector3.zero;
+		rb.isKinematic = false;
 
 		//TODO: win
 		coinSpawner.SpawnCoin();
