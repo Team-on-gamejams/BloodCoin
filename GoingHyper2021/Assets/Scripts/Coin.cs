@@ -119,9 +119,14 @@ public class Coin : MonoBehaviour {
 
 		if(isThrowed && !isStop) {
 			if (Physics.Raycast(transform.position, rb.velocity.normalized, out RaycastHit hit, rb.velocity.magnitude * Time.deltaTime, UnityConstants.Layers.DefaultMask)) {
-				rb.velocity = Vector3.Reflect(rb.velocity, hit.normal);
+				if (hit.transform.CompareTag(UnityConstants.Tags.Hand)) {
+					OnCollideHand(hit.transform.GetComponent<Hand>());
+				}
+				else {
+					rb.velocity = Vector3.Reflect(rb.velocity, hit.normal);
 
-				OnCollideObstacle();
+					OnCollideObstacle();
+				}
 			}
 		}
 
@@ -130,22 +135,12 @@ public class Coin : MonoBehaviour {
 		}
 	}
 
-	private void OnCollisionEnter(Collision collision) {
-		switch (collision.gameObject.tag) {
-			case UnityConstants.Tags.Hand:
-				OnCollideHand();
-				break;
-
-			//case UnityConstants.Tags.Untagged:
-			//	OnCollideObstacle(collision);
-			//	break;
-		}
-	}
-
-	void OnCollideHand() {
+	void OnCollideHand(Hand hand) {
 		if (isStop)
 			return;
 		isStop = true;
+
+		hand.OnCollideCoin();
 
 		isHit = true;
 		rb.velocity = Vector3.zero;
