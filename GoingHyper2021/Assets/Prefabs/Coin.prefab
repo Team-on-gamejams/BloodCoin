@@ -215,7 +215,6 @@ Transform:
   - {fileID: 3460928215737818452}
   - {fileID: 1227274321207559199}
   - {fileID: 1963576474}
-  - {fileID: 7963822694514184584}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,11 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4854c94da9abbd47b5180d7d5dc0483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spinStart: {fileID: 8300000, guid: c17481e970e1c7148aec5b57d2341d40, type: 3}
+  pickupStar: {fileID: 8300000, guid: 10e8c065b59d9d94d977ba319cfbbdbb, type: 3}
   fall: {fileID: 8300000, guid: 5a6313629cbf02f4f9f31afec003707f, type: 3}
   pushStart: {fileID: 8300000, guid: 25c3a3afdff647a44a624ad00cd42883, type: 3}
-  spinStart: {fileID: 8300000, guid: c17481e970e1c7148aec5b57d2341d40, type: 3}
   reflect: {fileID: 8300000, guid: 0c8c986ea1614464997023c2ee3ae199, type: 3}
-  pickupStar: {fileID: 8300000, guid: 10e8c065b59d9d94d977ba319cfbbdbb, type: 3}
   lineLenghtMod: 1
   force: 3
   minForce: 0.33
@@ -259,51 +258,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!1 &7524635517289007903
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7963822694514184584}
-  - component: {fileID: 7445806211584539338}
-  m_Layer: 6
-  m_Name: BloodCollider
-  m_TagString: Coin
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7963822694514184584
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7524635517289007903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3460928216913653480}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7445806211584539338
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7524635517289007903}
-  m_Material: {fileID: 13400000, guid: 31d6519239e4c9446a07dadb28f2311e, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 0
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.06899996, z: 0}
 --- !u!1001 &1227274321207959199
 PrefabInstance:
   m_ObjectHideFlags: 0
