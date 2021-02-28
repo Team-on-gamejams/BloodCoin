@@ -35,9 +35,6 @@ TriJam is a jam where your goal is to try and make something playable (and fun) 
 Video about TriJam from Rocknight Studios: https://www.youtube.com/watch?v=6PysBXflWdg&ab_channel=RocknightStudios
 
 
-# Diversifiers
- * Share the source code of your project
-
 
 # Credits
  * [Team-on](https://github.com/Team-on) - programmer
@@ -54,7 +51,8 @@ Video about TriJam from Rocknight Studios: https://www.youtube.com/watch?v=6PysB
 # Used assets:
  * Unity game template - https://github.com/Team-on/UnityGameTemplate
  * Assets from template - https://github.com/Team-on/UnityGameTemplate/wiki/Used-assets
- * link - where used
+ * https://assetstore.unity.com/packages/2d/textures-materials/blood-splatter-decal-package-7518 - blood decals
+ * https://assetstore.unity.com/packages/3d/props/furniture/medieval-tavern-pack-112546 - gameplay scene props
 
 
 # Screenshots

@@ -9,6 +9,9 @@ using NaughtyAttributes;
 using Random = UnityEngine.Random;
 
 public class Hand : MonoBehaviour {
+	[Header("Refs"), Space]
+	[SerializeField] ParticleSystem[] bloodParticles;
+
 	private void OnCollisionEnter(Collision collision) {
 		switch (collision.gameObject.tag) {
 			case UnityConstants.Tags.Coin:
@@ -18,6 +21,14 @@ public class Hand : MonoBehaviour {
 	}
 
 	void OnCollideCoin() {
+		StartCoroutine(Bleed());
+	}
 
+	IEnumerator Bleed() {
+		foreach (var part in bloodParticles) {
+			part.Stop();
+			part.Play();
+		}
+		yield return new WaitForSeconds(1.0f);
 	}
 }
