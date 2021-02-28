@@ -18,6 +18,6 @@ public class Floor : MonoBehaviour {
 	}
 
 	void OnCollideCoin(Coin c) {
-		c.OnStop();
+		c.Fall();
 	}
 }

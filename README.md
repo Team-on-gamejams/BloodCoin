@@ -54,6 +54,14 @@ Video about TriJam from Rocknight Studios: https://www.youtube.com/watch?v=6PysB
  * https://assetstore.unity.com/packages/2d/textures-materials/blood-splatter-decal-package-7518 - blood decals
  * https://assetstore.unity.com/packages/3d/props/furniture/medieval-tavern-pack-112546 - gameplay scene props
  * https://assetstore.unity.com/packages/3d/props/old-coin-49530 - coin
+ * https://www.free-stock-music.com/peritune-harvest5.html - music
+ * https://freesound.org/people/Sojan/sounds/334299/ - coin spin start
+ * https://www.zapsplat.com/music/cartoon-impact-hit-with-twang-3/ - coin push start
+ * https://freesound.org/people/HoseNoseSounds/sounds/510731/ - coin fall
+ * https://www.zapsplat.com/music/body-hit-impact-with-baseball-bat-or-other-similar-club-hard-whack-with-a-crack-and-crunch-sound/ - coin hit first time
+ * https://www.zapsplat.com/music/body-hit-impact-with-baseball-bat-or-other-similar-club-hard-whack-with-a-crack-and-squelch-of-blood-version-1/ - coin hit second+ time
+ * https://freesound.org/people/cabled_mess/sounds/350869/ - pickup star
+ * https://freesound.org/people/Eponn/sounds/420996/ - coin reflect
 
 
 # Screenshots

@@ -11,6 +11,13 @@ using Random = UnityEngine.Random;
 public class Coin : MonoBehaviour {
 	[NonSerialized] public CoinSpawner coinSpawner;
 
+	[Header("Audio"), Space]
+	[SerializeField] AudioClip spinStart;
+	[SerializeField] AudioClip pickupStar;
+	[SerializeField] AudioClip fall;
+	[SerializeField] AudioClip pushStart;
+	[SerializeField] AudioClip reflect;
+
 	[Header("Visual")]
 	[SerializeField] float lineLenghtMod = 2.0f;
 
@@ -146,17 +153,29 @@ public class Coin : MonoBehaviour {
 		rb.velocity = Vector3.zero;
 		rb.isKinematic = true;
 
+		LeanTween.scale(gameObject, Vector3.zero, 1.0f)
+		.setEase(LeanTweenType.easeInOutQuart)
+		.setOnComplete(() => Destroy(gameObject));
+
 		//TODO: win
 		coinSpawner.SpawnCoin();
 	}
 
 	void OnCollideObstacle() {
-
+		AudioManager.Instance.Play(reflect);
 	}
 
 	void LaunchCoin() {
 		Vector3 vec = GetThrowVector();
 		rb.AddForce(vec * force, ForceMode.Impulse);
+		AudioManager.Instance.Play(pushStart);
+	}
+
+	public void Fall() {
+		if (isStop)
+			return;
+		AudioManager.Instance.Play(fall);
+		OnStop();
 	}
 
 	public void OnStop() {

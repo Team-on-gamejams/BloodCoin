@@ -231,6 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4854c94da9abbd47b5180d7d5dc0483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fall: {fileID: 8300000, guid: 5a6313629cbf02f4f9f31afec003707f, type: 3}
+  pushStart: {fileID: 8300000, guid: 25c3a3afdff647a44a624ad00cd42883, type: 3}
+  spinStart: {fileID: 8300000, guid: c17481e970e1c7148aec5b57d2341d40, type: 3}
+  reflect: {fileID: 8300000, guid: 0c8c986ea1614464997023c2ee3ae199, type: 3}
+  pickupStar: {fileID: 8300000, guid: 10e8c065b59d9d94d977ba319cfbbdbb, type: 3}
   lineLenghtMod: 1
   force: 3
   minForce: 0.33
