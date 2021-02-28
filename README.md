@@ -62,6 +62,7 @@ Video about TriJam from Rocknight Studios: https://www.youtube.com/watch?v=6PysB
  * https://www.zapsplat.com/music/body-hit-impact-with-baseball-bat-or-other-similar-club-hard-whack-with-a-crack-and-squelch-of-blood-version-1/ - coin hit second+ time
  * https://freesound.org/people/cabled_mess/sounds/350869/ - pickup star
  * https://freesound.org/people/Eponn/sounds/420996/ - coin reflect
+ * https://www.youtube.com/watch?v=LUEDJ7CeArI - lowpoly character
 
 
 # Screenshots

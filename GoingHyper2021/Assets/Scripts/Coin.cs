@@ -20,6 +20,8 @@ public class Coin : MonoBehaviour {
 
 	[Header("Visual")]
 	[SerializeField] float lineLenghtMod = 2.0f;
+	[SerializeField] float wmod = 2.0f;
+	[SerializeField] float hmpd = 2.0f;
 
 	[Header("Balance")]
 	[SerializeField] float force = 5.0f;
@@ -40,9 +42,6 @@ public class Coin : MonoBehaviour {
 
 	Vector3 startHoldPos;
 	Vector3 holdPos;
-
-	List<Vector3> posToMove = new List<Vector3>();
-	int nextPos = 1;
 
 	private void Awake() {
 		forcelr.useWorldSpace = true;
@@ -104,6 +103,8 @@ public class Coin : MonoBehaviour {
 					}
 				}
 			}
+
+			forcelr.material.mainTextureScale = new Vector2(1f * wmod, 1.0f *hmpd);
 
 			forcelr.positionCount = pos.Count;
 			forcelr.SetPositions(pos.ToArray());
