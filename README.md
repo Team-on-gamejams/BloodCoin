@@ -1,12 +1,9 @@
- # [GAME_NAME](GAME_LINK)
-Made in X hours for [JAM_NAME](JAM_LINK)  
-Theme: THEME  
-
-Short desc  
+ # [Blood coin](GAME_LINK)
+Made in 48 hours for [Going hyper 2021](https://center42.tech/hyper-casual-jam/2021)  
 
 ![Cover](Screenshots/ItchioPage/CoverImage.png) 
 
-Long desc  
+Hit enemy fist with a coin!
 
 
 # Downloads and Links
@@ -19,33 +16,6 @@ If you get "this package is from an unidentified developer" right click (or cont
 
 #### Linux Version Notes:
 Make sure to set the x86_64 as executable before running.
-
-
-#  How to play
- * Controls
- * Do this to win
- * Do that to lose
- 
-#  Tips
- * Tips
-
-
-# What is TriJam?
-TriJam is a jam where your goal is to try and make something playable (and fun) in only 3 hours! How is that even possible, you ask? Well, just look at the history of previous TriJams and we're sure you'll be convinced that it is not only possible, but very manageable!  
-Video about TriJam from Rocknight Studios: https://www.youtube.com/watch?v=6PysBXflWdg&ab_channel=RocknightStudios
-
-
-
-# Credits
- * [Team-on](https://github.com/Team-on) - programmer
- * [Who](LINK) - role
-
-
-# Used tools:
- * Unity 2020.2.0f1
- * Visual Studio 2019
- * Adobe Photoshop 2020
- * sfxr
 
 
 # Used assets:
