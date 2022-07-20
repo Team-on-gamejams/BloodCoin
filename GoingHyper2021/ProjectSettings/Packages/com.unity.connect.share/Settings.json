@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/repo/UnityGameTemplate/GameTemplate/Builds/Releases/GameTemplate_0.1_WebGL/;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"E:/Repo/BloodCoin/GoingHyper2021/Builds/Releases/Blood_money_0.1_WebGL/;C:/repo/UnityGameTemplate/GameTemplate/Builds/Releases/GameTemplate_0.1_WebGL/;;;;;;;;\"}"
             }
         ]
     }
